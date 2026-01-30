@@ -1,17 +1,9 @@
-# =====================================
-# AI Code Reviewer & Bug Reasoner
-# Step 4: Auto-Fix Suggestions
-# =====================================
 
 import ast
 import json
 import requests
 
 BUILTIN_NAMES = set(dir(__builtins__))
-
-# ----------------------------------
-# STEP 2: Static Analysis
-# ----------------------------------
 
 def analyze_code(code: str):
     try:
@@ -53,9 +45,6 @@ def analyze_code(code: str):
         "issues": sorted(set(issues))
     }
 
-# ----------------------------------
-# STEP 3: AI Explanation
-# ----------------------------------
 
 def explain_issues_with_ai(code: str, issues: list):
     prompt = f"""
@@ -95,9 +84,6 @@ Return JSON:
     except Exception:
         return []
 
-# ----------------------------------
-# STEP 4: AUTO-FIX CODE GENERATION
-# ----------------------------------
 
 def generate_fixed_code(code: str, issues: list):
     prompt = f"""
@@ -131,9 +117,6 @@ Do NOT include explanations.
     except Exception:
         return None
 
-# ----------------------------------
-# Main Program
-# ----------------------------------
 
 if __name__ == "__main__":
     print("\n=== AI Code Reviewer & Auto-Fixer ===")
@@ -178,6 +161,7 @@ if __name__ == "__main__":
     if fixed:
         print("\n✨ Suggested Improved Code:\n")
         print(fixed)
+
 
 
 
